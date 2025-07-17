@@ -2,10 +2,11 @@ import { useState, useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import API from '@/utils/api';
 import { toast } from 'react-toastify';
-
+import { useNavigate } from 'react-router-dom';
 export default function Login() {
   const { login } = useContext(AuthContext);
   const [data, setData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,6 +24,16 @@ export default function Login() {
       <input type="email" placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
       <input type="password" placeholder="Password" onChange={(e) => setData({ ...data, password: e.target.value })} />
       <button type="submit">Login</button>
+
+      <p className="mt-4 text-center text-sm text-gray-600">
+          Don't have an account?{" "}
+          <span
+            className="text-blue-600 cursor-pointer"
+            onClick={() => navigate("/register")}
+          >
+           <button>Register</button>
+          </span>
+        </p>
     </form>
   );
 }
