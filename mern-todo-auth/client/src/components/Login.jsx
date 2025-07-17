@@ -22,7 +22,9 @@ export default function Login() {
   return (
     <form onSubmit={handleLogin} className="space-y-4">
       <input type="email" placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} />
+      <br />
       <input type="password" placeholder="Password" onChange={(e) => setData({ ...data, password: e.target.value })} />
+       <br />
       <button type="submit">Login</button>
 
       <p className="mt-4 text-center text-sm text-gray-600">
@@ -31,6 +33,7 @@ export default function Login() {
             className="text-blue-600 cursor-pointer"
             onClick={() => navigate("/register")}
           >
+             <br />
            <button>Register</button>
           </span>
         </p>
